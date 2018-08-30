@@ -1,0 +1,62 @@
+2018/03/12 12:13:38 -mrivas-Salida del sistema
+2018/03/12 12:13:49 -mrivas-Ingreso al sistema
+2018/03/12 12:53:53 -mrivas-Subido el producto con id: #1
+2018/03/12 12:54:17 -mrivas-Subido el producto con id: #2
+2018/03/12 18:21:07 -mrivas-Ingreso al sistema
+2018/03/12 18:59:05 -mrivas-Creado un usuario con id: #
+2018/03/12 19:01:00 -mrivas-Creado un usuario con id: #
+2018/03/12 19:01:54 -mrivas-Creado un usuario con id: #
+2018/03/12 19:03:08 -mrivas-Creado un usuario con id: #
+2018/03/12 19:03:46 -mrivas-Creado un usuario con id: #
+2018/03/12 19:05:56 -mrivas-Creado un usuario con id: #2
+2018/03/12 19:06:31 -mrivas-Salida del sistema
+2018/03/12 19:45:52 -mrivas-Ingreso al sistema
+2018/03/12 20:02:56 -mrivas-Subido el producto con id: #4
+2018/03/12 20:03:12 -mrivas-Subido el producto con id: #6
+2018/03/12 20:03:29 -mrivas-Subido el producto con id: #8
+2018/03/12 20:03:49 -mrivas-Subido el producto con id: #10
+2018/03/12 20:04:13 -mrivas-Subido el producto con id: #12
+2018/03/12 20:04:28 -mrivas-Subido el producto con id: #14
+2018/03/12 20:04:42 -mrivas-Subido el producto con id: #16
+2018/03/13 09:11:26 -mrivas-Ingreso al sistema
+2018/03/13 09:11:50 -mrivas-Salida del sistema
+2018/03/15 20:57:24 -mrivas-Ingreso al sistema
+2018/03/15 21:36:58 -mrivas-Salida del sistema
+2018/03/19 20:07:19 -mrivas-Ingreso al sistema
+2018/03/19 20:08:23 -mrivas-Salida del sistema
+2018/03/23 20:12:41 -mrivas-Ingreso al sistema
+2018/07/02 21:06:32 -mrivas-Ingreso al sistema
+2018/07/02 21:20:55 -mrivas-Subido el producto con id: #18
+2018/07/02 21:22:02 -mrivas-Subido el producto con id: #18
+2018/07/02 21:22:30 -mrivas-Subido el producto con id: #18
+2018/07/02 21:23:14 -mrivas-Subido el producto con id: #18
+2018/07/02 21:23:43 -mrivas-Subido el producto con id: #18
+2018/07/02 21:24:26 -mrivas-Subido el producto con id: #18
+2018/07/02 21:26:51 -mrivas-Subido el producto con id: #18
+2018/07/02 21:27:39 -mrivas-Subido el producto con id: #18
+2018/07/02 21:28:43 -mrivas-Subido el producto con id: #20
+2018/07/02 21:28:52 -mrivas-Subido el producto con id: #22
+2018/07/02 21:30:45 -mrivas-Subido el producto con id: #18
+2018/07/02 21:31:33 -mrivas-Eliminado el producto con id: #18
+2018/07/02 21:31:38 -mrivas-Subido el producto con id: #18
+2018/07/02 21:32:02 -mrivas-Subido el producto con id: #18
+2018/07/02 21:32:59 -mrivas-Subido el producto con id: #18
+2018/07/02 21:35:26 -mrivas-Subido el producto con id: #18
+2018/07/02 21:36:11 -mrivas-Subido el producto con id: #4
+2018/07/02 21:36:22 -mrivas-Subido el producto con id: #12
+2018/07/02 21:36:54 -mrivas-Subido el producto con id: #12
+2018/07/02 21:36:59 -mrivas-Subido el producto con id: #1
+2018/07/02 21:37:15 -mrivas-Subido el producto con id: #0
+2018/07/02 21:37:56 -mrivas-Subido el producto con id: #0
+2018/07/02 21:38:47 -mrivas-Subido el producto con id: #18
+2018/07/02 21:39:16 -mrivas-Subido el producto con id: #20
+2018/07/02 21:39:19 -mrivas-Eliminado el producto con id: #18
+2018/07/02 21:39:33 -mrivas-Subido el producto con id: #20
+2018/07/02 21:43:38 -mrivas-Salida del sistema
+2018/07/02 21:43:54 -mrivas-Ingreso al sistema
+2018/07/02 21:44:02 -mrivas-Eliminado el producto con id: #20
+2018/07/02 21:44:05 -mrivas-Salida del sistema
+2018/07/03 11:17:00 -mrivas-Ingreso al sistema
+2018/07/03 11:17:19 -mrivas-Salida del sistema
+2018/07/07 10:40:41 --Salida del sistema
+2018/07/07 10:40:42 --Salida del sistema

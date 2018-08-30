@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="institucionalApp">
+<head>
+	<meta charset="utf-8">
+	<title>D&D - S&H</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="Seguridad, higiene, consultoria, Santa Rosa, La Pampa, Argentina" name="keywords">
+	<meta content="Pagina web de consultoria y seguridad e higiene" name="description">
+	<meta property="og:title" content="D&D - H&S">
+	<meta property="og:image" content="">
+	<meta property="og:url" content="">
+	<meta property="og:site_name" content="">
+	<meta property="og:description" content="">
+	<!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
+	<meta name="twitter:card" content="summary">
+	<!-- Favicon -->
+	<link href="../favicon.png" rel="icon">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">	
+	<!-- AngularMaterial CSS-->
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+	<!-- Bootstrap CSS File -->
+	<link href="../assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<!-- Main Stylesheet File -->
+	<link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body ng-controller="institucionalCtrl" data-ng-init="init()">
+	<header id="header"></header>
+	<!-- Institucional -->
+	<section class="institucional" id="institucional">
+		<div class="row" style="width: 100%;">
+			<div style="margin-top: 5%;" class="col-sm-1">
+				<a ng-show="hayInst" class="left carousel-control-inst mt-3 p-4" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a>
+			</div>
+			<div class="col-sm-10">
+				<div class="carousel slide text-center" id="cInst" data-ride="carousel">
+					<div ng-hide="hayInst"><h2>No hay documentos cargados aún :(</h2></div>
+					<div hg-show="hayInst" id="rowCarrouselInst" class="carousel-inner">
+						<div class="carousel-item active" ng-repeat="docu in institucional">
+							<div class="row">
+								<div class="col-sm-6">
+									<i class="far fa-file-pdf fa-3x"></i>
+									<p style="margin-top: 5px;margin-bottom: 5px;">{{docu.viginst}}</p>
+									<a href="#">{{docu.titinst}}</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="margin-top: 5%;" class="col-sm-1">
+				<a ng-show="hayInst" class="right carousel-control-inst mt-3 p-4" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
+			</div>
+		</div>
+	</section>
+	<section style="margin-top: 85px;" class="cta">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-9 col-sm-12 text-lg-left text-center">
+					<h2>Videos institucionales</h2>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="videos">
+		<div style="margin-left:35vw;" ng-hide="hayVid"><h2>No hay videos cargados aún :(</h2></div>
+		<div ng-show="hayVid" id="vidInst" style="max-width: 100%;" class="row"></div>
+	</section>
+	<section style="margin-top: 85px;" class="cta">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-9 col-sm-12 text-lg-left text-center">
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- /Institucional -->
+	<footer id="footer"></footer>
+	<!-- Required JavaScript Libraries -->
+	<script src="../assets/lib/jquery/jquery.min.js"></script>
+	<script src="../assets/lib/stickyjs/sticky.js"></script>
+	<script src="../assets/lib/jquery/jquery-migrate.min.js"></script>
+	<script src="../assets/lib/fa/js/fontawesome-all.min.js"></script>
+	<script src="../assets/lib/stellar/stellar.min.js"></script>
+	<script src="../assets/lib/parallax/parallax.js"></script>
+	<!-- Angular Material requires Angular.js Libraries -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+	<!-- Angular Material Library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+	<!-- Custom JS -->
+	<script src="../app/custom.js"></script>
+	<!-- Institucional AppJS -->
+	<script src="../app/institucional.js"></script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="loginApp">
+<head>
+	<meta charset="utf-8">
+	<title>D&D - S&H</title>
+	<meta name="author" content="Matias E. Rivas - Tres Erres Soft">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Seguridad, higiene, consultoria, Santa Rosa, La Pampa, Argentina">
+	<meta name="description" content="Servicios de consultoria, seguridad e higiene en santa rosa la pampa">
+	<meta name=”robots” content="NoIndex, Follow">
+	<!-- Favicon -->
+	<link href="../favicon.png" rel="icon">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet" type="text/css" >
+	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet" type="text/css" >	<!-- Bootstrap CSS File -->
+	<link href="../assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" >
+	<!-- ../assets/lib/raries CSS Files -->
+	<link href="../assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" >
+	<!-- Swal Stylesheet File -->
+	<link href="../assets/sweetalert-master/dist/sweetalert.css" rel="stylesheet" type="text/css" >
+	<!-- Main Stylesheet File -->
+	<link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+	<header id="header"></header>
+	<!-- #header -->
+	<section style="padding-bottom: 33px;" class="login bg-primary block-pd-lg block-bg-overlay" id="login">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4"></div>
+				<!-- /col-sm-4 left -->
+				<div class="col-sm-4">
+					<span class="anchor"></span>
+					<!-- form card login -->
+					<div class="card rounded-0">
+						<div class="card-header">
+							<h3 class="mb-0">Ingreso</h3>
+						</div>
+						<div class="card-body">
+							<form name="loginForm" class="form-horizontal" role="form">
+								<div class="form-group">
+									<label for="user">Usuario</label>
+									<input id="user" type="text" class="form-control form-control-lg rounded-0" ng-model="login.nombuser" required focus>
+								</div>
+								<div class="form-group">
+									<label for="pwd">Contraseña</label>
+									<input type="password" class="form-control form-control-lg rounded-0" id="pwd" ng-model="login.password" required autocomplete="contraseña">
+									<i class="fas fa-lock"></i>
+								</div>
+								<button type="submit" class="width-35 pull-right btn btn-sm btn-primary" ng-click="doLogin(login)" data-ng-disabled="loginForm.$invalid">
+                                <i class="ace-icon fa fa-key"></i>
+                                Login
+                            </button>
+							</form>
+						</div>
+						<!--/card-block-->
+					</div>
+					<!-- /form card login -->
+				</div>
+				<!-- /col-sm-4 center -->
+				<div class="col-sm-4"></div>
+				<!-- /col-sm-4 right -->
+			</div>
+			<!--/row-->
+		</div>
+		<!--/container-->
+	</section>
+	<footer id="footer"></footer>
+	<a class="scrolltop" href="#"><span class="fa fa-angle-up"></span></a>
+	<!-- Required JavaScript ../assets/lib/raries -->
+	<script src="../assets/lib/jquery/jquery.min.js"></script>
+	<!-- Font Awsome -->
+	<script src="../assets/lib/fa/js/fontawesome-all.min.js"></script>
+	<!-- Swal -->
+	<script src="../assets/sweetalert-master/dist/sweetalert.min.js"></script>
+	<!-- AngularJS and SLIM Login APP -->
+	<script src="../assets/js/angular.min.js"></script>
+	<script src="../assets/js/angular-route.min.js"></script>
+	<script src="../assets/js/angular-animate.min.js" ></script>
+	<script src="../assets/js/toaster.js"></script>
+	<script src="../app/login.js"></script>
+	<script src="../app/data.js"></script>
+	<script src="../app/authCtrl.js"></script>
+	<script src="../app/directives.js"></script>
+	<!-- Custom Javascript File -->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#header").load("./header.html");
+			$("#footer").load("./footer.html");
+		});
+	</script>
+</body>
+</html>

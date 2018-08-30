@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="usuariosApp">
+
+<head>
+	<!-- Required meta tags-->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Matías Rivas">
+	<!-- Favicon -->
+	<link href="../favicon.png" rel="icon">
+	<!-- Title Page-->
+	<title>Usuarios</title>
+	<!-- Fontfaces CSS-->
+	<link href="./assets/css/font-face.css" rel="stylesheet" media="all">
+	<link href="./assets/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+	<!-- AngularMaterial CSS-->
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+	<!-- Bootstrap CSS-->
+	<link href="./assets/css/bootstrap.css" rel="stylesheet" media="all">
+	<!-- Vendor CSS-->
+	<link href="./assets/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+	<link href="./assets/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+	<link href="./assets/vendor/wow/animate.css" rel="stylesheet" media="all">
+	<link href="./assets/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+	<link href="./assets/vendor/slick/slick.css" rel="stylesheet" media="all">
+	<link href="./assets/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+	<link href="./assets/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+	<!-- Main CSS-->
+	<link href="./assets/css/usuarios.css" rel="stylesheet">
+	<link href="./assets/css/theme.css" rel="stylesheet" media="all">
+</head>
+<body class="animsition" ng-controller="usuariosCtrl" data-ng-init="init()">
+	<div class="page-wrapper">
+		<div id="headerSide"></div>
+		<div class="page-container">
+			<div id="headerTop"></div>
+			<div class="main-content">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="table-responsive table--no-card m-b-30">
+							<table class="table table-borderless table-striped table-earning">
+								<thead>
+									<tr>
+										<th>Nombre</th>
+										<th>Imágen</th>
+										<th>Tipo</th>
+										<th>Opciones</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="usuario in usuarios | orderBy:'-iduser'">
+										<td>{{usuario.nombuser}}</td>
+										<td><img style="max-width: 3em" class="rounded-circle mx-auto d-block" ng-src="./assets/images/users/{{usuario.path}}" alt="Card image cap"></td>
+										<td>{{usuario.tipouser | tipoNombre}}</td>
+										<td style="font-size: 2rem">
+											<a ng-click="delete(usuario.iduser)" href="#">
+												<ion-icon name="trash"></ion-icon>
+											</a> 
+											<a ng-click="edit(usuario.iduser)" href="#">
+												<ion-icon name="color-wand"></ion-icon>
+											</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div style="margin-left: 2em;z-index: 1030;">
+							<div class=" float-left" layout="row" flex="25">
+								<button class="btn btn-success" style="border-radius: 50%;" ng-click="showDialog($event)">
+									<ion-icon style="font-size: 2rem;" name="cloud-upload"></ion-icon>
+								</button>
+							</div>     
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Jquery JS-->
+	<script src="./assets/vendor/jquery-3.2.1.min.js"></script>
+	<!-- Bootstrap JS-->
+	<script src="./assets/vendor/bootstrap-4.1/popper.min.js"></script>
+	<script src="./assets/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+	<!-- Vendor JS       -->
+	<script src="./assets/vendor/slick/slick.min.js"></script>
+	<script src="./assets/vendor/wow/wow.min.js"></script>
+	<script src="./assets/vendor/animsition/animsition.min.js"></script>
+	<script src="./assets/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+	<script src="./assets/vendor/counter-up/jquery.waypoints.min.js"></script>
+	<script src="./assets/vendor/counter-up/jquery.counterup.min.js"></script>
+	<script src="./assets/vendor/circle-progress/circle-progress.min.js"></script>
+	<script src="./assets/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+	<script src="./assets/vendor/chartjs/Chart.bundle.min.js"></script>
+	<script src="./assets/vendor/select2/select2.min.js"></script>
+	<!-- Angular Material requires Angular.js Libraries -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+	<!-- Angular Material Library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+	<!-- SweetAlert JS-->
+	<script src="./assets/js/sweetalert.all.min.js"></script>
+	<!-- Ionicons JS-->
+	<script src="https://unpkg.com/ionicons@4.3.0/dist/ionicons.js"></script>
+	<!-- Generales JS-->
+	<script src="./assets/js/generales.js"></script>
+	<!-- FileUpload AngJS-->
+	<script src="./assets/js/angular-file-upload.js"></script>
+	<!-- Perfil JS-->
+	<script src="./app/usuarios.js"></script>
+</body>
+</html>

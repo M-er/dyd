@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="perfilApp">
+
+<head>
+	<!-- Required meta tags-->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="Matías Rivas">
+	<!-- Favicon -->
+	<link href="../favicon.png" rel="icon">
+	<!-- Title Page-->
+	<title>Perfil</title>
+	<!-- Fontfaces CSS-->
+	<link href="./assets/css/font-face.css" rel="stylesheet" media="all">
+	<script src="https://unpkg.com/ionicons@4.3.0/dist/ionicons.js"></script>
+	<link href="./assets/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+	<!-- AngularMaterial CSS-->
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+	<!-- Bootstrap CSS-->
+	<link href="./assets/css/bootstrap.css" rel="stylesheet" media="all">
+	<!-- Perfil CSS-->
+	<link href="./assets/css/perfil.css" rel="stylesheet" media="all">
+	<!-- Vendor CSS-->
+	<link href="./assets/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+	<link href="./assets/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+	<link href="./assets/vendor/wow/animate.css" rel="stylesheet" media="all">
+	<link href="./assets/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+	<link href="./assets/vendor/slick/slick.css" rel="stylesheet" media="all">
+	<link href="./assets/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+	<link href="./assets/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+	<!-- Main CSS-->
+	<link href="./assets/css/theme.css" rel="stylesheet" media="all">
+</head>
+<body class="animsition" ng-controller="perfilCtrl" data-ng-init="init()">
+	<div class="page-wrapper">
+		<div id="headerSide"></div>
+		<div class="page-container">
+			<div id="headerTop"></div>
+			<div class="main-content">
+				<div class="col-md-4 float-left">
+					<div class="card">
+						<div class="card-body">
+							<div class="mx-auto d-block">
+								<img style="max-width: 10em" class="rounded-circle mx-auto d-block" ng-src="{{path}}" alt="Card image cap">
+								<h5 class="text-sm-center mt-2 mb-1">{{usuario.nombuser}}</h5>
+								<div class="location text-sm-center">
+									<i class="far fa-user-astronaut"></i> 
+									{{usuario.tipouser | tipoNombre}}
+								</div>
+								<input id="fileInput" name="img" class="ng-hide" type="file" ng-model="file"  fileread="file" nv-file-select uploader="uploader" multiple ng-files="getTheFiles($files)" />
+							</div>
+							<div class="row">
+								<md-button class="mx-auto" ng-click="eligeImg()" id="uploadButton">
+									<md-icon aria-label="icono-camara" style="height: 100%; width: 100%">
+										<ion-icon name="camera"></ion-icon>
+										<p style="float: right;margin-left: 5px;">Subir imágen</p>
+									</md-icon>
+								</md-button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6 float-right">
+					<div class="card">
+						<div class="card-body">
+							<div class="card-title">
+								<h3 class="text-center title-2">Actualizar datos</h3>
+							</div>
+							<hr>
+							<div class="form-group">
+								<label for="nombre" class="pr-1  form-control-label">Nombre</label>
+								<input type="text" id="nombre" placeholder="Nombre de usuario" required="" class="form-control" ng-model="usuario.nombuser">
+							</div>
+							<div class="form-group">
+								<label for="tipo" class="px-1  form-control-label">Tipo</label>
+								<select id="tipoUser" class="custom-select b-0" ng-model="usuario.tipouser">
+									<option selected>Seleccione un tipo</option>
+									<option value ="1">Administrador </option>
+									<option value ="2">Usuario simple </option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="contra1" class="pr-1  form-control-label">Contraseña</label>
+								<input type="text" id="contra1" placeholder="Contraseña" required="" class="form-control" ng-model="usuario.contuser">
+							</div>
+							<div class="form-group">
+								<label for="contra2" class="px-1  form-control-label">Repita Contraseña</label>
+								<input type="text" id="contra2" placeholder="Repita la contraseña" required="" class="form-control" ng-model="usuario.contuser" required equal="{{usuario.contuser}}">
+							</div>
+							<section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+								<md-button ng-click="update()" class="md-raised md-primary btn-lg btn-block">Actualizar datos!</md-button>
+							</section>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Jquery JS-->
+	<script src="./assets/vendor/jquery-3.2.1.min.js"></script>
+	<!-- Bootstrap JS-->
+	<script src="./assets/vendor/bootstrap-4.1/popper.min.js"></script>
+	<script src="./assets/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+	<!-- Vendor JS       -->
+	<script src="./assets/vendor/slick/slick.min.js"></script>
+	<script src="./assets/vendor/wow/wow.min.js"></script>
+	<script src="./assets/vendor/animsition/animsition.min.js"></script>
+	<script src="./assets/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+	<script src="./assets/vendor/counter-up/jquery.waypoints.min.js"></script>
+	<script src="./assets/vendor/counter-up/jquery.counterup.min.js"></script>
+	<script src="./assets/vendor/circle-progress/circle-progress.min.js"></script>
+	<script src="./assets/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+	<script src="./assets/vendor/chartjs/Chart.bundle.min.js"></script>
+	<script src="./assets/vendor/select2/select2.min.js"></script>
+	<!-- Angular Material requires Angular.js Libraries -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+	<!-- Angular Material Library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+	<!-- SweetAlert JS-->
+	<script src="./assets/js/sweetalert.all.min.js"></script>
+	<!-- Generales JS-->
+	<script src="./assets/js/generales.js"></script>
+	<!-- Perfil JS-->
+	<script src="./app/perfil.js"></script>
+</body>
+</html>

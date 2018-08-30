@@ -1,0 +1,90 @@
+<md-dialog aria-label="Modal: agregar nuevo usuario" >
+  <md-content layout="column" class="autoScroll">
+    <div style="margin: 1em" class="row">
+      <div class="card col">
+        <div class="card-body">
+          <div class="mx-auto d-block">
+            <ul class="list-group">
+              <li ng-repeat="item in uploader.queue" class="list-group">
+                <div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 100 }"></div>
+              </li>
+            </ul>
+            <img  id="preview" style="max-width: 15em" class="rounded-circle mx-auto d-block" ng-src="{{thumb}}" alt="Card image cap">
+            <h3 class="text-sm-center mt-2 mb-1">{{newuser.nombuser}}</h3>
+            <h4 class="text-sm-center mt-2 mb-1">{{newuser.tipouser | tipoNombre}}</h54>
+              <input id="fileInput" type="file" ng-files="getTheFiles($files)" ng-model="file" fileread="file" class="ng-hide"/>
+            </div>
+          </div>
+          <div class="row">
+            <md-button class="mx-auto" ng-click="eligeImg()" id="uploadButton">
+              <md-icon aria-label="icono-camara" style=" height: 100%; width: 100%">
+                <ion-icon name="camera"></ion-icon>
+              Subir imágen</md-icon>
+            </md-button>
+          </div>
+        </div>
+        <div style="margin: 1em" class="col">
+          <md-input-container class="md-icon-float md-block">
+            <label>Nombre de usuario</label>
+            <input md-maxlength="30" required name="username" ng-model="newuser.nombuser" type="text">
+            <div ng-messages="userForm.name.$error">
+              <div ng-message="required">Ingrese un nombre.</div>
+              <div ng-message="md-maxlength">El nombre debe tener como máximo 30 caracteres.</div>
+            </div>
+            <md-icon aria-label="icon-persona" style="display:inline-block;">
+             <ion-icon name="person"></ion-icon>
+           </md-icon>
+         </md-input-container>
+         <md-input-container class="md-icon-float md-block">
+          <label>Contraseña</label>
+          <input md-minlength="8" required name="userpsw" ng-model="newuser.contuser" type="text" >
+          <div ng-messages="userForm.psw.$error">
+            <div ng-message="required">Ingrese una contraseña</div>
+            <div ng-message="md-maxlength">La contraseña debe tener como mínimo 8 caracteres.</div>
+          </div>
+          <md-icon aria-label="icon-exito" style="display:inline-block;">
+            <ion-icon class="success" name="lock"></ion-icon>
+          </md-icon>
+        </md-input-container>
+        <md-input-container class="md-icon-float md-block">
+          <label>Contraseña(De nuevo)</label>
+          <input md-minlength="8" required name="userconfirmpsw" ng-model="confirmpsw" type="text"  required equal="{{newuser.psw}}">
+          <div ng-messages="userForm.psw.$error">
+            <div ng-message="required">Ingrese una contraseña</div>
+            <div ng-message="md-maxlength">La contraseña debe tener como mínimo 8 caracteres.</div>
+            <div ng-message="md-match">Las contraseñas no coinciden!</div>
+          </div>
+          <md-icon aria-label="icon-candado" style="display:inline-block;">
+            <ion-icon name="lock"></ion-icon>
+          </md-icon>
+        </md-input-container>
+        <md-input-container class="md-block" flex-gt-sm>
+          <label>Tipo de usuario</label>
+          <md-select ng-model="newuser.tipouser">
+            <md-option ng-repeat="tipo in type" value="{{tipo.value}}">
+              {{tipo.name}}
+            </md-option>
+          </md-select>
+          <md-icon aria-label="icon-warning" style="display:inline-block;">
+            <ion-icon class="warning" name="home"></ion-icon>
+          </md-icon>
+        </md-input-container>
+        <md-dialog-actions layout="row">
+          <md-progress-circular ng-show="activated" class="md-accent md-hue-1" md-diameter="60"></md-progress-circular>   
+          <md-button ng-click="limpiar()" aria-label="Boton limpiar">
+            <md-icon aria-label="icon-warning">
+              <ion-icon class="warning" name="sync"></ion-icon>
+            </md-icon>
+          </md-button>
+          <md-button type="submit" aria-label="Boton guardar" ng-click="guardar(newuser)"><md-icon>
+           <ion-icon name="person-add"></ion-icon>
+         </md-icon>  </md-button>
+       </md-dialog-actions>
+      <!--   <br/>
+      <div layout="row">
+        Progreso
+      </div>-->
+    </div>
+  </div>
+</md-content>
+</md-dialog>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es" ng-app="productosApp">
+<head>
+	<meta charset="utf-8">
+	<title>D&D - S&H</title>
+	<meta name="author" content="Matias E. Rivas - Tres Erres Soft">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="keywords" content="Seguridad, higiene, consultoria, Santa Rosa, La Pampa, Argentina">
+	<meta name="description" content="Servicios de consultoria, seguridad e higiene en santa rosa la pampa">
+	<meta name=”robots” content="Index, Follow">
+	<!-- Favicon -->
+	<link href="../favicon.png" rel="icon">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">	
+	<!-- AngularMaterial CSS-->
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+	<!-- Bootstrap CSS File -->
+	<link href="../assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<!-- Main Stylesheet File -->
+	<link href="../assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+	<header id="header"></header>
+	<!-- Productos -->
+	<section class="team" id="productos" ng-controller="productosCtrl" data-ng-init="init()">
+		<div class="row" style="width: 100%;">
+			<div style="margin-top: 5%;" class="col-sm-1">
+				<a ng-show="hayProds" class="left carousel-control-prod mt-3 p-4" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a>
+			</div>
+			<div class="col-sm-10">
+				<div class="carousel slide text-center" id="cProd" data-ride="carousel">
+					<div ng-hide="hayProds"><h2>No hay productos cargados aún :(</h2></div>
+					<div ng-show="hayProds" id="rowCarrouselProd" class="carousel-inner"></div>
+				</div>
+			</div>
+			<div style="margin-top: 5%;" class="col-sm-1">
+				<a ng-show="hayProds" class="right carousel-control-prod mt-3 p-4" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
+			</div>
+		</div>
+	</section>
+	<section style="margin-top: 85px;" class="cta">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-9 col-sm-12 text-lg-left text-center">
+					<h2>Conozca más de nuestros productos</h2>
+				</div>
+				<div class="col-lg-3 col-sm-12 text-lg-right text-center">
+					<a class="btn btn-ghost" href="#">Ver más</a>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- /Productos -->
+	<footer id="footer"></footer>
+	<!-- Required JavaScript Libraries -->
+	<script src="../assets/lib/jquery/jquery.min.js"></script>
+	<script src="../assets/lib/stickyjs/sticky.js"></script>
+	<script src="../assets/lib/jquery/jquery-migrate.min.js"></script>
+	<script src="../assets/lib/fa/js/fontawesome-all.min.js"></script>
+	<script src="../assets/lib/stellar/stellar.min.js"></script>
+	<script src="../assets/lib/parallax/parallax.js"></script>	
+	<!-- Angular Material requires Angular.js Libraries -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+	<!-- Angular Material Library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+	<!-- Custom JS -->
+	<script src="../app/custom.js"></script>
+	<!-- Productos AppJS -->
+	<script src="../app/productos.js"></script>
+</body>
+</html>
