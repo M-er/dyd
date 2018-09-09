@@ -1,7 +1,7 @@
 <?php
 namespace App;
 /**
-* 
+*
  Clase Login para ingreso o salida del sistema
 *
 **/
@@ -23,9 +23,8 @@ class Login
 	}
 	function login( $request, $response, array $args ){
 		$conn = new DBHandler();
-		$todo = $request->getParsedBody();
-		$usuario = $todo['usuario'];
-		$username = $usuario['nombuser'];
+		$usuario = $request->getParsedBody();
+		$username = $usuario['username'];
 		$password = $usuario['password'];
 		$query = "Select iduser, tipouser, nombuser, contuser FROM user WHERE nombuser = '$username'";
 		$user = $conn->getOneRecord($query);
@@ -33,7 +32,7 @@ class Login
 			if(PasswordHash::check_password($user['contuser'],$password)){
 				$rta['status'] = "success";
 				$rta['message'] = 'Ha ingresado correctamente';
-				$this->logger->addInfo("Ingreso | ".$username);  
+				$this->logger->addInfo("Ingreso | ".$username);
 				$rta['nombuser'] = $user['nombuser'];
 				$rta['iduser'] = $user['iduser'];
 				$rta['tipouser'] = $user['tipouser'];

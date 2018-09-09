@@ -53,8 +53,13 @@
 										<td>{{inst.tipoinst | tipoNombre}}</td>
 										<td>{{inst.user_iduser | userNombre}}</td>
 										<td>{{inst.viginst}}</td>
-										<td>
-											<a ng-click="borrar(inst.idinstitucional)" href="#"></a><i class="fas fa-eraser"></i>
+										<td style="font-size: 2rem">
+											<a ng-click="delete(usuario.iduser)" href="#">
+												<ion-icon name="trash"></ion-icon>
+											</a>
+											<a ng-click="edit(usuario.iduser)" href="#">
+												<ion-icon name="color-wand"></ion-icon>
+											</a>
 										</td>
 									</tr>
 								</tbody>
@@ -62,8 +67,10 @@
 						</div>
 						<div style="margin-left: 2em;z-index: 1030;">
 							<div class=" float-left" layout="row" flex="25">
-								<button class="btn btn-success" style="border-radius: 50%;" ng-click="showDialog($event)"><i class="fa fa-upload"></i></button>
-							</div>     
+								<button class="btn btn-success" style="border-radius: 50%;" ng-click="showDialog($event)">
+									<ion-icon style="font-size: 2rem;" name="cloud-upload"></ion-icon>
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>
