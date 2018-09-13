@@ -11,19 +11,24 @@ $container['logger'] = function ($c) {
 	}
 	return $logger;
 };
+
+/*  * * * * Utilidades  * * * *  */
 $container['saludador'] = function ($c) {
 	$saludador = new App\Saludador($c['logger']);
 	return $saludador;
 };
-//SESSION WRITE CLOSE!!!!
 $container['sessionador'] = function ($c) {
 	$session = new App\Session($c['logger']);
 	return $session;
 };
+
+/*  * * * * Acciones  * * * *  */
 $container['logueador'] = function ($c) {
 	$loguea = new App\Login($c['logger']);
 	return $loguea;
 };
+
+/*  * * * * Usuarios  * * * *  */
 $container['usuario'] = function ($c) {
 	$user = new App\User($c['logger']);
 	return $user;
@@ -32,6 +37,8 @@ $container['usuarios'] = function ($c) {
 	$users = new App\UserMapper($c['logger']);
 	return $users;
 };
+
+/*  * * * * Productos  * * * *  */
 $container['producto'] = function ($c) {
 	$product = new App\Product($c['logger']);
 	return $product;
@@ -40,7 +47,14 @@ $container['productos'] = function ($c) {
 	$products = new App\ProductMapper($c['logger']);
 	return $products;
 };
-$container['institucional'] = function ($c) {
+
+/*  * * * * Institucional  * * * *  */
+$container['institucionales'] = function ($c) {
 	$institucional = new App\InstitucionalMapper($c['logger']);
+	return $institucional;
+};
+/*  * * * * Institucional  * * * *  */
+$container['institucional'] = function ($c) {
+	$institucional = new App\Institucional($c['logger']);
 	return $institucional;
 };

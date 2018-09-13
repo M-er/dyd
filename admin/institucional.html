@@ -43,16 +43,14 @@
 										<th>Titulo</th>
 										<th>Tipo</th>
 										<th>Creador</th>
-										<th>Vigencia</th>
 										<th>Opciones</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr ng-repeat="inst in institucional">
-										<td>{{inst.titinst}}</td>
-										<td>{{inst.tipoinst | tipoNombre}}</td>
+										<td>{{inst.titulo}}</td>
+										<td>{{inst.tipo | tipoNombre}}</td>
 										<td>{{inst.user_iduser | userNombre}}</td>
-										<td>{{inst.viginst}}</td>
 										<td style="font-size: 2rem">
 											<a ng-click="delete(usuario.iduser)" href="#">
 												<ion-icon name="trash"></ion-icon>
@@ -104,7 +102,10 @@
 	<script src="./assets/js/sweetalert.all.min.js"></script>
 	<!-- Generales JS-->
 	<script src="./assets/js/generales.js"></script>
-	<!-- Perfil JS-->
+	<!-- Youtube embed JS-->
+	<script src="https://www.youtube.com/iframe_api"></script>
+	<script src="./assets/js/angular-youtube-embed.js"></script>
+	<!-- Institucional JS-->
 	<script src="./app/institucional.js"></script>
 </body>
 </html>

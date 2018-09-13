@@ -1,5 +1,5 @@
 var usuarios = [];
-var app = angular.module('instApp', ['ngMaterial']);
+var app = angular.module('instApp', ['ngMaterial','youtube-embed']);
 app.filter('tipoNombre', [function() {
 	return function(numeroTipo) {
 		var losTipos = ['Documento','Video'];
@@ -40,11 +40,11 @@ app.controller('instCtrl', function($scope, $mdToast, $mdDialog ,$q, $http) {
 		$http.get('api/institucional/all').then( function(resultado){
 			var response = resultado['data'];
 			$scope.institucional = response;
-			console.dir($scope.institucional);
 		}).catch(function(resultado){
 			deferred.reject(resultado);
 		});
 		return deferred.promise;
+
 	};
 	$scope.closeToast = function() {
 		$mdToast.hide();
@@ -105,6 +105,28 @@ app.controller('instCtrl', function($scope, $mdToast, $mdDialog ,$q, $http) {
 			};
 			$scope.eligeImg = function(){
 				$("#fileInput").click();
+			}
+			$scope.guardar = function(){
+				var deferred;
+				deferred = $q.defer();
+				angular.forEach($scope.newinst, function (value, key) {
+					formdata.append(key, value);
+				});
+				var request = {
+					method: 'POST',
+					url: 'api/institucional/s',
+					data: formdata,
+					headers: {'Content-Type': undefined}
+				};
+				$http(request).then( function(data){
+					var rta = data['data'];
+					$scope.tostado(rta['message'], rta['status']);
+					$scope.limpiar();
+					$scope.hide();
+				}).catch(function(resultado){
+					deferred.reject(resultado);
+				});
+				return deferred.promise;
 			}
 		}
 	};

@@ -4,16 +4,16 @@
       <div style="margin: 1em" class="col">
         <md-input-container class="md-block" flex-gt-sm>
           <label>Tipo de documentación</label>
-          <md-select ng-model="newinst.tipoinst">
+          <md-select ng-model="newinst.tipo">
             <md-option ng-repeat="tipo in type" value="{{tipo.value}}">
               {{tipo.name}}
             </md-option>
           </md-select>
         </md-input-container>
-        <md-input-container class="md-icon-float md-block" ng-if="newinst.tipoinst">
+        <md-input-container class="md-icon-float md-block" ng-if="newinst.tipo">
           <label>Titulo</label>
-          <input md-maxlength="15" required name="title" ng-model="newinst.tit" type="text">
-          <div ng-messages="instForm.tit.$error">
+          <input md-maxlength="15" required name="title" ng-model="newinst.titulo" type="text">
+          <div ng-messages="instForm.titulo.$error">
             <div ng-message="required">Ingrese un titulo.</div>
             <div ng-message="md-maxlength">El titulo debe tener como máximo 15 caracteres.</div>
           </div>
@@ -21,26 +21,27 @@
             <ion-icon name="text"></ion-icon>
           </md-icon>
         </md-input-container>
-        <md-input-container class="md-icon-float md-block" ng-if="newinst.tipoinst == 2">
-          <label>URL del video</label>
-          <input required name="url" ng-model="newinst.url" type="text">
-          <div ng-messages="instForm.url.$error">
-            <div ng-message="required">Ingrese una dirección url.</div>
+        <md-input-container class="md-icon-float md-block" ng-if="newinst.tipo == 2">
+          <label>ID del video</label>
+          <input required name="path" ng-model="newinst.path" type="text">
+          <div ng-messages="instForm.path.$error">
+            <div ng-message="required">Ingrese el ID del video.</div>
           </div>
           <md-icon aria-label="icon-texto" style="display:inline-block;">
             <ion-icon name="logo-youtube"></ion-icon>
           </md-icon>
         </md-input-container>
-        <md-input-container class="md-icon-float md-block" ng-if="newinst.tipoinst == 2">
+        <md-input-container class="md-icon-float md-block" ng-if="newinst.tipo == 2">
           <div class="card">
             <div class="card-body">
               <div class="card-title">
-                Titulo
+                {{newinst.titulo}}
               </div>
+              <youtube-video video-id="newinst.path"></youtube-video>
             </div>
           </div>
         </md-input-container>
-        <md-input-container class="md-icon-float md-block" ng-if="newinst.tipoinst == 1">
+        <md-input-container class="md-icon-float md-block" ng-if="newinst.tipo == 1">
           <label>Texto</label>
           <input md-minlength="5" required name="text" ng-model="newinst.text" type="text">
           <div ng-messages="instForm.text.$error">
@@ -51,7 +52,7 @@
             <ion-icon name="book"></ion-icon>
           </md-icon>
         </md-input-container>
-        <md-input-container class="md-icon-float md-block" ng-if="newinst.tipoinst == 1">
+        <md-input-container class="md-icon-float md-block" ng-if="newinst.tipo == 1">
           <label>Vigencia</label>
           <input required name="vigencia" ng-model="newinst.vig" type="text">
 
@@ -60,7 +61,7 @@
           </md-icon>
         </md-input-container>
 
-        <md-input-container ng-if="newinst.tipoinst == 1">
+        <md-input-container ng-if="newinst.tipo == 1">
           <div class="row">
             <input id="fileInput" type="file" ng-files="getTheFiles($files)" ng-model="file" fileread="file" class="ng-hide"/>
             <md-button class="mx-auto" ng-click="eligeDoc()" id="uploadButton">
@@ -78,7 +79,7 @@
               <ion-icon class="warning" name="sync"></ion-icon>
             </md-icon>
           </md-button>
-          <md-button type="submit" aria-label="Boton guardar" ng-click="guardar(newinst)"><md-icon>
+          <md-button type="submit" aria-label="Boton guardar" ng-click="guardar()"><md-icon>
             <ion-icon name="cloud-upload"></ion-icon>
           </md-icon>  </md-button>
         </md-dialog-actions>

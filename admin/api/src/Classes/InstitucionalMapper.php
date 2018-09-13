@@ -1,9 +1,9 @@
 <?php
 namespace App;
 /**
-* 
-Clase InstitucionalMapper 
-Es un conjunto de productos 
+*
+Clase InstitucionalMapper
+Es un conjunto de institucionales 
 *
 **/
 class InstitucionalMapper extends Mapper
