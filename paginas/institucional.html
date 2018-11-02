@@ -2,7 +2,7 @@
 <html lang="es" ng-app="institucionalApp">
 <head>
 	<meta charset="utf-8">
-	<title>D&D - S&H</title>
+	<title>D&D - Consultoria Seguridad e higiene</title>
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<meta content="Seguridad, higiene, consultoria, Santa Rosa, La Pampa, Argentina" name="keywords">
 	<meta content="Pagina web de consultoria y seguridad e higiene" name="description">
@@ -14,87 +14,176 @@
 	<!-- Twitter Cards integration: https://dev.twitter.com/cards/  -->
 	<meta name="twitter:card" content="summary">
 	<!-- Favicon -->
-	<link href="../assets/favicon.png" rel="icon">
+	<link rel="apple-touch-icon" sizes="57x57" href="../assets/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="../assets/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../assets/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../assets/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../assets/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../assets/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../assets/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../assets/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="../assets/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+	<link rel="manifest" href="../assets/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="../assets/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
 	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">	
+	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
 	<!-- AngularMaterial CSS-->
 	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
 	<!-- Bootstrap CSS File -->
 	<link href="../assets/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 	<link href="../assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
 	<!-- Main Stylesheet File -->
 	<link href="../assets/css/style.css" rel="stylesheet">
 </head>
 <body ng-controller="institucionalCtrl" data-ng-init="init()">
 	<header id="header"></header>
 	<!-- Institucional -->
-	<section class="institucional" id="institucional">
+	<section id="institucional" style="height:auto" class="block bg-primary block-pd-lg block-bg-overlay institucional" data-bg-img="../assets/img/parallax-bg.jpg" data-settings='{"stellar-background-ratio": 0.6}' data-toggle="parallax-bg" >
 		<div class="row" style="width: 100%;">
-			<div style="margin-top: 5%;" class="col-sm-1">
-				<a ng-show="hayInst" class="left carousel-control-inst mt-3 p-4" data-slide="prev"> <i class="fa fa-chevron-left"></i> </a>
+			<div class="col-sm-12">
+				<div ng-hide="hayDoc">
+					<h2>No hay documentos cargados aún :(</h2>
+				</div>
+				<div class="container" ng-show="hayDoc">
+					<div class="row">
+						<div ng-show="d_construccion" class="col">
+							<ul class=" float-left">
+								<div ng-repeat="docu in d_construccion">
+									<li id="const">
+										<span class="badge badge-info">Construccion</span>
+										<a class="float-left" ng-href="../assets/pdf/{{docu.path}}" download><h6 style="color: white"><ion-icon name="book"></ion-icon> {{docu.titulo}} </h6></a>
+									</li>
+								</div>
+							</ul>
+						</div>
+						<div ng-show="d_agro" class="col">
+							<ul class=" float-left">
+								<div ng-repeat="docu in d_agro">
+									<li id="const">
+										<span class="badge badge-info">Agro</span>
+										<a class="float-left" ng-href="../assets/pdf/{{docu.path}}" download><h6 style="color: white"><ion-icon name="book"></ion-icon> {{docu.titulo}} </h6></a>
+									</li>
+								</div>
+							</ul>
+						</div>
+						<div ng-show="d_mineria" class="col">
+							<ul class=" float-left">
+								<div ng-repeat="docu in d_mineria">
+									<li id="const">
+										<span class="badge badge-info">Mineria</span>
+										<a class="float-left" ng-href="../assets/pdf/{{docu.path}}" download><h6 style="color: white"><ion-icon name="book"></ion-icon> {{docu.titulo}} </h6></a>
+									</li>
+								</div>
+							</ul>
+						</div>
+						<div ng-show="d_profesionales"class="col">
+							<ul class=" float-left">
+								<div ng-repeat="docu in d_profesionales">
+									<li id="const">
+										<span class="badge badge-info">Profesionales</span>
+										<a class="float-left" ng-href="../assets/pdf/{{docu.path}}" download><h6 style="color: white"><ion-icon name="book"></ion-icon> {{docu.titulo}} </h5></a>
+										</li>
+									</div>
+								</ul>
+							</div>
+							<div ng-show="d_generales" class="col">
+								<ul class=" float-left">
+									<div ng-repeat="docu in d_generales">
+										<li id="const">
+											<span class="badge badge-info">Generales</span>
+											<a class="float-left" ng-href="../assets/pdf/{{docu.path}}" download><h6 style="color: white"><ion-icon name="book"></ion-icon> {{docu.titulo}} </h6></a>
+										</li>
+									</div>
+								</ul>
+							</div>
+							<div ng-show="d_seguridad" class="col">
+								<ul class=" float-left">
+									<div ng-repeat="docu in d_seguridad">
+										<li id="const">
+											<span class="badge badge-info">Seguridad</span>
+											<a class="float-left" ng-href="../assets/pdf/{{docu.path}}" download><h6 style="color: white"><ion-icon name="book"></ion-icon> {{docu.titulo}} </h6></a>
+										</li>
+									</div>
+								</ul>
+							</div>
+							<div ng-show="d_protocolos" class="col">
+								<ul class=" float-left">
+									<div ng-repeat="docu in d_protocolos">
+										<li id="const">
+											<span class="badge badge-info">Protocolos</span>
+											<a class="float-left" ng-href="../assets/pdf/{{docu.path}}" download><h6 style="color: white"><ion-icon name="book"></ion-icon> {{docu.titulo}} </h6></a>
+										</li>
+									</div>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="col-sm-10">
-				<div class="carousel slide text-center" id="cInst" data-ride="carousel">
-					<div ng-hide="hayInst"><h2>No hay documentos cargados aún :(</h2></div>
-					<div hg-show="hayInst" id="rowCarrouselInst" class="carousel-inner">
-						<div class="carousel-item active" ng-repeat="docu in institucional">
-							<div class="row">
-								<div class="col-sm-6">
-									<i class="far fa-file-pdf fa-3x"></i>
-									<p style="margin-top: 5px;margin-bottom: 5px;">{{docu.viginst}}</p>
-									<a href="#">{{docu.titinst}}</a>
+		</section>
+		<section class="cta">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-9 col-sm-12 text-lg-left text-center">
+						<h2>Videos institucionales</h2>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section style="height:auto" class="videos" id="videos">
+			<div class="row" style="width: 100%;">
+				<div class="col-sm-10">
+					<div class="container" ng-hide="hayVid">
+						<h2>No hay videos cargados aún :(</h2>
+					</div>
+					<div class="container" ng-show="hayVid">
+						<div ng-repeat="vid in videos">
+							<div class="col-sm-3 float-left">
+								<div class="col-sm-4">
+									<span class="badge badge-info" ng-class="getBadgeClass(docu.categoria)">{{vid.categoria}}</span>
+								</div>
+								<div class="card" style="width: 18rem;">
+									<iframe class="embed-responsive" width="560" height="315" ng-src="{{vid.url}}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+									<div class="card-body">
+										<h5 class="card-title">{{vid.titulo}}</h5>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div style="margin-top: 5%;" class="col-sm-1">
-				<a ng-show="hayInst" class="right carousel-control-inst mt-3 p-4" data-slide="next"> <i class="fa fa-chevron-right"></i> </a>
-			</div>
-		</div>
-	</section>
-	<section style="margin-top: 85px;" class="cta">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-9 col-sm-12 text-lg-left text-center">
-					<h2>Videos institucionales</h2>
-				</div>
-			</div>
-		</div>
-	</section>
-	<section class="videos">
-		<div style="margin-left:35vw;" ng-hide="hayVid"><h2>No hay videos cargados aún :(</h2></div>
-		<div ng-show="hayVid" id="vidInst" style="max-width: 100%;" class="row"></div>
-	</section>
-	<section style="margin-top: 85px;" class="cta">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-9 col-sm-12 text-lg-left text-center">
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- /Institucional -->
-	<footer id="footer"></footer>
-	<!-- Required JavaScript Libraries -->
-	<script src="../assets/lib/jquery/jquery.min.js"></script>
-	<script src="../assets/lib/stickyjs/sticky.js"></script>
-	<script src="../assets/lib/jquery/jquery-migrate.min.js"></script>
-	<script src="../assets/lib/fa/js/fontawesome-all.min.js"></script>
-	<script src="../assets/lib/stellar/stellar.min.js"></script>
-	<script src="../assets/lib/parallax/parallax.js"></script>
-	<!-- Angular Material requires Angular.js Libraries -->
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
-	<!-- Angular Material Library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
-	<!-- Custom JS -->
-	<script src="../app/custom.js"></script>
-	<!-- Institucional AppJS -->
-	<script src="../app/institucional.js"></script>
-</body>
-</html>
+		</section>
+		<!-- /Institucional -->
+		<footer id="footer"></footer>
+		<!-- Required JavaScript Libraries -->
+		<script src="../assets/lib/jquery/jquery.min.js"></script>
+		<script src="../assets/lib/stickyjs/sticky.js"></script>
+		<script src="../assets/lib/jquery/jquery-migrate.min.js"></script>
+		<script src="../assets/lib/fa/js/fontawesome-all.min.js"></script>
+		<script src="../assets/lib/stellar/stellar.min.js"></script>
+		<script src="../assets/lib/parallax/parallax.js"></script>
+		<script src="https://unpkg.com/ionicons@4.4.6/dist/ionicons.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+		<!-- Angular Material requires Angular.js Libraries -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+		<!-- Angular Material Library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+		<!-- Custom JS -->
+		<script src="../app/custom.js"></script>
+		<!-- Institucional AppJS -->
+		<script src="../app/institucional.js"></script>
+	</body>
+	</html>

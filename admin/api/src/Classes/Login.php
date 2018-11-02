@@ -21,6 +21,13 @@ class Login
 		$rta['status'] = 'success';
 		return $response->withJson($rta);
 	}
+	function logout($request, $response, array $args){
+		Session::destroySession();
+		$rta['status'] = 'success';
+		$rta['message'] = 'Adios';
+		return $response->withJson($rta);
+
+	}
 	function login( $request, $response, array $args ){
 		$conn = new DBHandler();
 		$usuario = $request->getParsedBody();

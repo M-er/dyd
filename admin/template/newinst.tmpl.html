@@ -21,6 +21,13 @@
             <ion-icon name="text"></ion-icon>
           </md-icon>
         </md-input-container>
+        <md-input-container class="md-icon-float md-block" ng-if="newinst.tipo">
+          <label>Categoria</label>
+          <input md-maxlength="75" name="categoria" ng-model="newinst.categoria" type="text">
+          <md-icon aria-label="icon-texto" style="display:inline-block;">
+            <ion-icon name="text"></ion-icon>
+          </md-icon>
+        </md-input-container>
         <md-input-container class="md-icon-float md-block" ng-if="newinst.tipo == 2">
           <label>ID del video</label>
           <input required name="path" ng-model="newinst.path" type="text">
@@ -31,39 +38,9 @@
             <ion-icon name="logo-youtube"></ion-icon>
           </md-icon>
         </md-input-container>
-        <md-input-container class="md-icon-float md-block" ng-if="newinst.tipo == 2">
-          <div class="card">
-            <div class="card-body">
-              <div class="card-title">
-                {{newinst.titulo}}
-              </div>
-              <youtube-video video-id="newinst.path"></youtube-video>
-            </div>
-          </div>
-        </md-input-container>
-        <md-input-container class="md-icon-float md-block" ng-if="newinst.tipo == 1">
-          <label>Texto</label>
-          <input md-minlength="5" required name="text" ng-model="newinst.text" type="text">
-          <div ng-messages="instForm.text.$error">
-            <div ng-message="required">Ingrese un texto.</div>
-            <div ng-message="md-maxlength">El texto debe tener como minimo 5 caracteres.</div>
-          </div>
-          <md-icon aria-label="icon-texto" style="display:inline-block;">
-            <ion-icon name="book"></ion-icon>
-          </md-icon>
-        </md-input-container>
-        <md-input-container class="md-icon-float md-block" ng-if="newinst.tipo == 1">
-          <label>Vigencia</label>
-          <input required name="vigencia" ng-model="newinst.vig" type="text">
-
-          <md-icon aria-label="icon-texto" style="display:inline-block;">
-            <ion-icon name="calendar"></ion-icon>
-          </md-icon>
-        </md-input-container>
-
         <md-input-container ng-if="newinst.tipo == 1">
           <div class="row">
-            <input id="fileInput" type="file" ng-files="getTheFiles($files)" ng-model="file" fileread="file" class="ng-hide"/>
+            <input id="fileInput" aria-label="icono-escondido" name="img" class="ng-hide" type="file" ng-model="file"  fileread="file" nv-file-select uploader="uploader" ng-files="getTheFiles($files)" />
             <md-button class="mx-auto" ng-click="eligeDoc()" id="uploadButton">
               <md-icon aria-label="icono-documento" style="height: 100%; width: 100%">
                 <ion-icon name="document"></ion-icon>

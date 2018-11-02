@@ -7,7 +7,23 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="author" content="Matías Rivas">
 	<!-- Favicon -->
-	<link href="../favicon.png" rel="icon">
+	<link rel="apple-touch-icon" sizes="57x57" href="../assets/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="../assets/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../assets/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../assets/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../assets/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../assets/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../assets/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../assets/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="../assets/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+	<link rel="manifest" href="../assets/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="../assets/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
 	<!-- Title Page-->
 	<title>Perfil</title>
 	<!-- Fontfaces CSS-->
@@ -44,7 +60,7 @@
 								<img style="max-width: 10em" class="rounded-circle mx-auto d-block" ng-src="{{path}}" alt="Card image cap">
 								<h5 class="text-sm-center mt-2 mb-1">{{usuario.nombuser}}</h5>
 								<div class="location text-sm-center">
-									<i class="far fa-user-astronaut"></i> 
+									<i class="far fa-user-astronaut"></i>
 									{{usuario.tipouser | tipoNombre}}
 								</div>
 								<input id="fileInput" name="img" class="ng-hide" type="file" ng-model="file"  fileread="file" nv-file-select uploader="uploader" multiple ng-files="getTheFiles($files)" />

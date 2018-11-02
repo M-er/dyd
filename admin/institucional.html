@@ -6,7 +6,23 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="author" content="Matías Rivas">
 	<!-- Favicon -->
-	<link href="../favicon.png" rel="icon">
+	<link rel="apple-touch-icon" sizes="57x57" href="../assets/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="../assets/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../assets/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="../assets/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../assets/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="../assets/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../assets/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../assets/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="../assets/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+	<link rel="manifest" href="../assets/favicon/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="../assets/favicon/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
 	<!-- Title Page-->
 	<title>Institucional</title>
 	<!-- Fontfaces CSS-->
@@ -43,6 +59,7 @@
 										<th>Titulo</th>
 										<th>Tipo</th>
 										<th>Creador</th>
+										<th>Categoria</th>
 										<th>Opciones</th>
 									</tr>
 								</thead>
@@ -51,21 +68,29 @@
 										<td>{{inst.titulo}}</td>
 										<td>{{inst.tipo | tipoNombre}}</td>
 										<td>{{inst.user_iduser | userNombre}}</td>
+										<td>{{inst.categoria}}</td>
 										<td style="font-size: 2rem">
-											<a ng-click="delete(usuario.iduser)" href="#">
+											<a ng-click="delete(inst.idinstitucional)" href="#">
 												<ion-icon name="trash"></ion-icon>
 											</a>
-											<a ng-click="edit(usuario.iduser)" href="#">
+											<a ng-click="edit(inst.idinstitucional)" href="#">
 												<ion-icon name="color-wand"></ion-icon>
 											</a>
 										</td>
 									</tr>
 								</tbody>
 							</table>
+							<div ng-if="!institucional.length" class="alert alert-danger" role="alert">
+								No hay documentos/videos cargados.
+							</div>
+
+							<div data-pagination="" data-num-pages="numOfPages()"
+							data-current-page="curPage" data-max-size="maxSize"
+							data-boundary-links="true"></div>
 						</div>
 						<div style="margin-left: 2em;z-index: 1030;">
 							<div class=" float-left" layout="row" flex="25">
-								<button class="btn btn-success" style="border-radius: 50%;" ng-click="showDialog($event)">
+								<button class="btn btn-primary" style="border-radius: 50%;" ng-click="showDialog($event)">
 									<ion-icon style="font-size: 2rem;" name="cloud-upload"></ion-icon>
 								</button>
 							</div>

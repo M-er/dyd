@@ -1,30 +1,15 @@
 var usuarios = [];
 var app = angular.module('instApp', ['ngMaterial','youtube-embed']);
-app.filter('tipoNombre', [function() {
-	return function(numeroTipo) {
-		var losTipos = ['Documento','Video'];
-		return losTipos[numeroTipo - 1];
-	}
-}]),
-app.filter('userNombre', [function() {
-	return function(numeroTipo) {
-		console.dir(usuarios);
-		return usuarios[numeroTipo];
-	}
-}]),
-
+app.filter('tipoNombre', [function() {return function(numeroTipo) {var losTipos = ['Documento','Video'];return losTipos[numeroTipo - 1];}}]),
+app.filter('userNombre', [function() {return function(numeroTipo) {return usuarios[numeroTipo];}}]),
 app.directive('ngFiles', ['$parse', function ($parse) {
-
 	function fn_link(scope, element, attrs) {
 		var onChange = $parse(attrs.ngFiles);
 		element.on('change', function (event) {
 			onChange(scope, { $files: event.target.files });
 		});
 	};
-
-	return {
-		link: fn_link
-	}
+	return {link: fn_link}
 } ]),
 app.controller('instCtrl', function($scope, $mdToast, $mdDialog ,$q, $http) {
 	$scope.institucional = [];
@@ -44,20 +29,22 @@ app.controller('instCtrl', function($scope, $mdToast, $mdDialog ,$q, $http) {
 			deferred.reject(resultado);
 		});
 		return deferred.promise;
-
 	};
-	$scope.closeToast = function() {
-		$mdToast.hide();
-	};
-	$scope.tostado = function(texto,tipo) {
-		$mdToast.show(
-			$mdToast.simple()
-			.toastClass('md-toast-'+tipo)
-			.textContent(texto)
-			.position('bottom right')
-			.hideDelay(3000)
-		);
-	};
+	$scope.delete = function(inst){
+		var	deferred;
+		deferred = $q.defer();
+		var idinstitucional = inst;
+		$http.delete('api/institucional/delete/'+idinstitucional).then( function(data){
+			var response = data['data'];
+			$scope.tostado(response['message'],response['status']);
+			$scope.init();
+		}).catch(function(resultado){
+			deferred.reject(resultado);
+		});
+		return deferred.promise;
+	}
+	$scope.closeToast = function() {$mdToast.hide();};
+	$scope.tostado = function(texto,tipo) {$mdToast.show(	$mdToast.simple().toastClass('md-toast-'+tipo).textContent(texto).position('bottom right').hideDelay(3000));};
 	$scope.showDialog = function(ev) {
 		$mdDialog.show({
 			templateUrl: './template/newinst.tmpl.html',
@@ -75,53 +62,36 @@ app.controller('instCtrl', function($scope, $mdToast, $mdDialog ,$q, $http) {
 			$scope.newinst = {};
 			$scope.activated = false;
 			$scope.determinateValue = 0;
-			var formdata = new FormData();
-
-			$scope.eligeImg = function(){
-				$("#fileInput").click();
-			}
-			$scope.closeDialog = function() {
-				console.log("Cierro con: closeDialog")
-				$mdDialog.hide();
-			}
-			$scope.hide = function() {
-				console.log("Cierro con: hide")
-				$mdDialog.hide();
+			$scope.formdata = new FormData();
+			$scope.eligeDoc = function(){ $("#fileInput").click();	}
+			$scope.getTheFiles = function ($files) {
+				angular.forEach($files, function (value, key) {
+					$scope.formdata.append(key, value);
+				});
 			};
-			$scope.limpiar = function(){
-				$scope.newinst = {};
-			}
-			$scope.cancel = function() {
-				console.log("Cierro con: cancel")
-				$mdDialog.cancel();
-			};
-			$scope.closeToast = function() {
-				$mdToast.hide();
-			};
+			$scope.closeDialog = function() {	$mdDialog.hide();};
+			$scope.hide = function() {	$scope.limpiar();$mdDialog.hide();};
+			$scope.limpiar = function(){$scope.newinst = {};}
+			$scope.cancel = function() {$scope.limpiar();$mdDialog.cancel();};
+			$scope.closeToast = function() {$mdToast.hide();};
 			$scope.tostado = function(texto,tipo) {
-				$mdToast.show(
-					$mdToast.simple().toastClass('md-toast-'+tipo).textContent(texto).position('bottom right').hideDelay(3000)
-				);
+				$mdToast.show($mdToast.simple().toastClass('md-toast-'+tipo).textContent(texto).position('bottom right').hideDelay(3000));
 			};
-			$scope.eligeImg = function(){
-				$("#fileInput").click();
-			}
 			$scope.guardar = function(){
 				var deferred;
 				deferred = $q.defer();
 				angular.forEach($scope.newinst, function (value, key) {
-					formdata.append(key, value);
+					$scope.formdata.append(key, value);
 				});
 				var request = {
 					method: 'POST',
 					url: 'api/institucional/s',
-					data: formdata,
+					data: $scope.formdata,
 					headers: {'Content-Type': undefined}
 				};
 				$http(request).then( function(data){
 					var rta = data['data'];
 					$scope.tostado(rta['message'], rta['status']);
-					$scope.limpiar();
 					$scope.hide();
 				}).catch(function(resultado){
 					deferred.reject(resultado);
@@ -131,7 +101,6 @@ app.controller('instCtrl', function($scope, $mdToast, $mdDialog ,$q, $http) {
 		}
 	};
 });
-
 $(document).ready(function() {
 	init();
 });

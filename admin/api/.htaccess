@@ -9,4 +9,3 @@ RewriteEngine On
 RewriteBase /dyd/admin/api/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ index.php [QSA,L]
-

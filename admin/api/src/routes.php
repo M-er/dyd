@@ -3,7 +3,6 @@
 use Slim\Http\Request;
 use Slim\Http\Response;
 use Slim\Http\UploadedFile;
-
 // Routes
 /**
  * Example GET route
@@ -14,12 +13,11 @@ use Slim\Http\UploadedFile;
  *
  * @return \Psr\Http\Message\ResponseInterface
  */
-
-
  /* * * * * Login/Session * * * * */
 $app->get('/hello/{name}', "saludador:hola");
 $app->get('/session/', "sessionador:getSession");
 $app->post('/login/', "logueador:login");
+$app->get('/logout/', "logueador:logout");
 /* * * * * Usuarios * * * * */
 $app->post('/usuario/s', "usuario:save");
 $app->get('/usuario/me', "usuario:getMe");
@@ -34,3 +32,4 @@ $app->get('/acciones/all', "logueador:getAcc");
 /* * * * * Institucional * * * * */
 $app->get('/institucional/all', "institucionales:getAll");
 $app->post('/institucional/s', "institucional:save");
+$app->delete('/institucional/delete/{idinstitucional}', "institucional:delete");

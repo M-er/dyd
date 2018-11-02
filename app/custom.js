@@ -9,4 +9,8 @@ $(document).ready(function() {
 			$('.scrolltop').fadeOut();
 		}
 	});
+	$('.alert').delay( 800 ).fadeOut( 5000 );
+	setTimeout(function(){
+		$(".animate-flicker").removeClass('animate-flicker').addClass(' ');
+	}, 5000);
 });

@@ -26,7 +26,7 @@
 
 
   })(jQuery);
-  
+
   (function ($) {
   // Use Strict
   "use strict";
@@ -65,7 +65,7 @@
   try {
   	var jscr1 = $('.js-scrollbar1');
   	if(jscr1[0]) {
-  		const ps1 = new PerfectScrollbar('.js-scrollbar1');      
+  		const ps1 = new PerfectScrollbar('.js-scrollbar1');
   	}
 
   	var jscr2 = $('.js-scrollbar2');
@@ -103,7 +103,7 @@
   // USE STRICT
   "use strict";
 
-  // Dropdown 
+  // Dropdown
   try {
   	var menu = $('.js-item-menu');
   	var sub_menu_is_showed = -1;
@@ -111,7 +111,7 @@
   	for (var i = 0; i < menu.length; i++) {
   		$(menu[i]).on('click', function (e) {
   			e.preventDefault();
-  			$('.js-right-sidebar').removeClass("show-sidebar");        
+  			$('.js-right-sidebar').removeClass("show-sidebar");
   			if (jQuery.inArray(this, menu) == sub_menu_is_showed) {
   				$(this).toggleClass('show-dropdown');
   				sub_menu_is_showed = -1;
@@ -278,6 +278,19 @@ $( document ).ready(function() {
     }
 
   });
-	
-	console.log( "ready!" );
+	console.log( "GeneralesJS!" );
 });
+function salir(){
+  console.log("Saliendo . . . ");
+  $.ajax({
+		type: "get",
+		data: {},
+		url: "api/logout/",
+		dataType: 'json',
+		cache: false,
+		success: function(datos, textStatus, jqXHR) {
+      window.location.href = "../index.html";
+    }
+
+  });
+}

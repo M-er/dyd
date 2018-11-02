@@ -1,7 +1,7 @@
 <?php
 namespace App;
 /**
-* 
+*
 Clase Session para retornar, crear o eliminar sessiones
 *
 **/
@@ -45,7 +45,7 @@ class Session
 		}
 		return $response->withJson($sess);
 	}
-	function destroySession(Request $request, Response $response, array $args){
+	function destroySession(){
 		if (!isset($_SESSION)) {
 			session_start();
 		}
@@ -60,11 +60,7 @@ class Session
 			}
 			$msg="Se ha deslogueado satisfactoriamente...";
 		}
-		else
-		{
-			$msg = "Lo esta logueado...";
-		}
-		return $response->withJson($msg);
+
 	}
 }
 ?>
