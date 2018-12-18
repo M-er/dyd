@@ -31,5 +31,15 @@ $app->get('/producto/{{id}}', "producto:getOne");
 $app->get('/acciones/all', "logueador:getAcc");
 /* * * * * Institucional * * * * */
 $app->get('/institucional/all', "institucionales:getAll");
+
+$app->get('/institucional/ca', "institucionales:construccion");
+$app->get('/institucional/aa', "institucionales:agro");
+$app->get('/institucional/ma', "institucionales:mineria");
+$app->get('/institucional/ea', "institucionales:enfprofesionales");
+$app->get('/institucional/pa', "institucionales:protocolos");
+$app->get('/institucional/ga', "institucionales:generales");
+$app->get('/institucional/sa', "institucionales:servicios");
+
+
 $app->post('/institucional/s', "institucional:save");
 $app->delete('/institucional/delete/{idinstitucional}', "institucional:delete");

@@ -1087,3 +1087,9 @@ ul.icon li.seguridad:before { content: "\f132"; }
    -o-animation: flickerAnimation 1s infinite;
     animation: flickerAnimation 1s infinite;
 }
+.bg-primario{
+  background-color: #A3B4A2;
+}
+.primario{
+  color: #3a6ab7;
+}
