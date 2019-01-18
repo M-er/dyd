@@ -89,7 +89,7 @@ class Institucional
 
     if($sess['iduser']){
       $delete = $db->delete("institucional", $condition);
-      $this->logger->addInfo("Eliminación de documentacion/video | ".$sess["nombuser"] );
+      $this->logger->addInfo("Eliminacion de documentacion/video | ".$sess["nombuser"] );
     }
     if($delete){
       $rta['status'] = "success";

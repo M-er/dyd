@@ -44,38 +44,6 @@ a {
 /* ==================================================
 Elements
 ================================================== */
-.btn {
-  background-color: #A3B4A2;
-  font-family: "Roboto", Helvetica, Arial, sans-serif;
-  font-weight: 800;
-  color: #fff;
-  padding: 15px 45px;
-  border-radius: 50px;
-}
-
-.btn:hover {
-  background-color: #3A6AB7;
-  color: #fff;
-}
-
-.btn:focus {
-  color: #fff;
-}
-.btn-primary:disabled{
-  color: grey;
-  border-color: black;
-  color: black;
-}
-.btn-ghost {
-  border: 3px solid #fff;
-  background-color: transparent;
-}
-
-.btn-ghost:hover {
-  background-color: #fff;
-  color: #199EB8;
-}
-
 section {
   padding: 85px 0px 0px 0px;
 }
@@ -1060,6 +1028,8 @@ ul.icon li.incendios:before { content: "\f06d"; }
 ul.icon li.emergencia:before { content: "\f0eb"; }
 ul.icon li.evaluacion:before { content: "\f06e"; }
 ul.icon li.seguridad:before { content: "\f132"; }
+ul.icon li.inspecciones:before { content: "\f002"; }
+ul.icon li.auditoria:before { content: "\f170"; }
 
 @keyframes flickerAnimation {
   0%   { opacity:1; }

@@ -26,7 +26,6 @@ class Login
 		$rta['status'] = 'success';
 		$rta['message'] = 'Adios';
 		return $response->withJson($rta);
-
 	}
 	function login( $request, $response, array $args ){
 		$conn = new DBHandler();

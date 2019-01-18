@@ -11,7 +11,6 @@ $container['logger'] = function ($c) {
 	}
 	return $logger;
 };
-
 /*  * * * * Utilidades  * * * *  */
 $container['saludador'] = function ($c) {
 	$saludador = new App\Saludador($c['logger']);
@@ -21,13 +20,11 @@ $container['sessionador'] = function ($c) {
 	$session = new App\Session($c['logger']);
 	return $session;
 };
-
 /*  * * * * Acciones  * * * *  */
 $container['logueador'] = function ($c) {
 	$loguea = new App\Login($c['logger']);
 	return $loguea;
 };
-
 /*  * * * * Usuarios  * * * *  */
 $container['usuario'] = function ($c) {
 	$user = new App\User($c['logger']);

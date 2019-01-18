@@ -55,7 +55,7 @@ class User
 			if($sess['iduser']==$usuario['iduser']){
 				$this->logger->addInfo("Actualizacion de datos propios | ".$sess["nombuser"] );
 			}else{
-				$this->logger->addInfo("Actualización de usuario con ID:".$usuario['iduser']." | ".$sess["nombuser"] );
+				$this->logger->addInfo("Actualizacion de usuario con ID:".$usuario['iduser']." | ".$sess["nombuser"] );
 			}
 			$rta['status'] = "success";
 			$rta['message'] = "El usuario se ha actualizado satisfactoriamente";
@@ -102,7 +102,7 @@ class User
 		}else{
 			if($sess['iduser']){
 				$delete = $db->delete("user", $condition);
-				$this->logger->addInfo("Eliminación de usuario | ".$sess["nombuser"] );
+				$this->logger->addInfo("Eliminacion de usuario | ".$sess["nombuser"] );
 			}
 			if($delete){
 				$rta['status'] = "success";

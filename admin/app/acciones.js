@@ -27,7 +27,7 @@ app.controller('accCtrl', function($scope, $timeout, $q, $log, $http) {
 				$scope.acciones.push(accion);
 			});
 			console.dir($scope.acciones);
-			console.log(ingreso+" ingresos al sistema");
+			// console.log(ingreso+" ingresos al sistema");
 		}).catch(function(resultado){
 			deferred.reject(resultado);
 		});

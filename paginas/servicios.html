@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es"  ng-app="serviciosApp">
 <head>
 	<meta charset="utf-8">
 	<title>D&D - Consultoria Seguridad e higiene</title>
@@ -26,6 +26,8 @@
 	<meta name="msapplication-TileColor" content="#ffffff">
 	<meta name="msapplication-TileImage" content="../assets/favicon/ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">
+	<!-- AngularMaterial CSS-->
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700|Roboto:400,900" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">	<!-- Bootstrap CSS File -->
@@ -33,47 +35,33 @@
 	<link href="../assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 	<!-- Main Stylesheet File -->
 	<link href="../assets/css/style.css" rel="stylesheet">
+	<link href="../assets/css/servicios.css" rel="stylesheet">
 </head>
 <body>
 	<header id="header"></header>
 	<!-- Servicios -->
-	<section class="servicios" id="servicios">
+	<section class="servicios" id="servicios" ng-controller="serviciosCtrl" data-ng-init="init()">
 		<div class="container text-center">
 			<h2 class="lead">En D&D proveemos tanto servicios como productos de higiene y seguridad</h2>
 		</div>
-		<div class="block bg-primary block-pd-lg block-bg-overlay" data-bg-img="../assets/img/parallax-bg.jpg" data-settings='{"stellar-background-ratio": 0.6}' data-toggle="parallax-bg">
-			<div class="col-sm-6 float-left">
-				<h2>Servicios de higiene y seguridad</h2>
-				<ul class="icon float-left">
-					<li class="icon informes menu-has-children">Informes de seguridad para habilitacion comercial</li>
-					<li class="icon capacitacion">Capacitaciones sobre higiene y seguridad</li>
-					<li class="icon seguridad">Planes de seguridad</li>
-					<li class="icon evaluacion">Planes de evacuación</li>
-					<li class="icon incendios">Incendios</li>
-					<li class="icon emergencia">Iluminación de emergencia</li>
-				</ul>
-			</div>
-			<div class="col-sm-6 float-left">
-				<h2>Servicios de ingeniería</h2>
-				<ul class="icon">
-					<li class="icon rayo menu-has-children">Proyectos eléctricos
-						<ul class="icon">
-							<li class="icon bajatension">En baja tensión</li>
-							<li class="icon altatension">En media tensión</li>
-						</ul>
-					</li>
-					<li class="icon electricidad">Acometidas electricas (domiciliarias e industriales)</li>
-					<li class="icon tableros">Diseño de tableros electricos
-						<ul class="icon">
-							<li class="icon analisis">Análisis y estudios de instalaciones eléctricas</li>
-							<li class="icon puestatierra">Diseño y medicion de sistemas de puestas a tierras</li>
-							<li class="icon electricidad">Mediciones electricas en general</li>
-
-						</ul>
-					</li>
-					<li class="icon calidad">Evaluaciones de calidad de servicios</li>
-					<li class="icon iluminacion">Calculos de iluminacion</li>
-				</ul>
+		<div class="block bg-primary block-pd-lg block-bg-overlay  h-100" data-bg-img="../assets/img/parallax-bg.jpg" data-settings='{"stellar-background-ratio": 0.6}' data-toggle="parallax-bg">
+			<div class="container">
+				<div ng-if="serviciossyh && serviciosing" class="row">
+					<div class=" col-4 " ng-repeat="servicio in serviciossyh">
+						<md-card class="contenedor">
+							<a style="cursor:pointer;" href="./contacto.html"></a>
+							<img ng-src="../assets/img/servicios/{{servicio.path}}.jpg" style="max-height:11em;" class="img-fluid tinted md-card-image" alt="Img">
+							<div class="texto-img"> <h3>{{servicio.titulo}}</h3> </div>
+						</md-card>
+					</div>
+					<div class=" col-4 " ng-repeat="servicio in serviciosing">
+						<md-card class="contenedor">
+							<a style="cursor:pointer;" href="./contacto.html"></a>
+							<img ng-src="../assets/img/servicios/{{servicio.path}}.jpg" style="max-height:11em;" class="img-fluid tinted md-card-image" alt="Img">
+							<div class="texto-img"> <h3>{{servicio.titulo}}</h3> </div>
+						</md-card>
+					</div>
+				</div>
 			</div>
 		</div>
 		<!-- /Parallax -->
@@ -87,6 +75,13 @@
 	<script src="../assets/lib/fa/js/fontawesome-all.min.js"></script>
 	<script src="../assets/lib/stellar/stellar.min.js"></script>
 	<script src="../assets/lib/parallax/parallax.js"></script>
+	<!-- Angular Material requires Angular.js Libraries -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+	<!-- Angular Material Library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
 	<!-- Custom JS -->
 	<script src="../app/custom.js"></script>
 	<!-- Servicios AppJS -->

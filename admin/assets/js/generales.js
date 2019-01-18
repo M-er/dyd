@@ -285,10 +285,11 @@ function salir(){
   $.ajax({
 		type: "get",
 		data: {},
-		url: "api/logout/",
+		url: "./api/logout/",
 		dataType: 'json',
 		cache: false,
 		success: function(datos, textStatus, jqXHR) {
+      console.log("Saliendo . . .=D ");
       window.location.href = "../index.html";
     }
 
